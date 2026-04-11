@@ -1,0 +1,113 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb_checkpoints/
+
+# PyCharm
+.idea/
+
+# VS Code
+.vscode/
+
+# Model checkpoints and trained models
+results/models/
+results/output/
+results/checked/
+old/
+# results/figures/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.bin
+checkpoint-*/
+merged_checkpoint_*/
+
+# Training data (large files)
+training/data/*.jsonl
+training/data/*.json
+# Note: Keep src/data/*.jsonl if they are tracked configuration files
+
+# Weights & Biases
+wandb/
+.wandb/
+mlruns/
+
+# CUDA
+*.cubin
+*.fatbin
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*~
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+.cache/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Data directories (uncomment if you want to ignore all data)
+# data/
+# src/data/
+
+# Large output files (uncomment if needed)
+# *.csv
+# *.tsv
+
+# Hugging Face cache
+.cache/
+huggingface/
+
+# vLLM cache
+.vllm_cache/
+
