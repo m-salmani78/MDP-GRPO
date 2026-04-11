@@ -1,0 +1,33 @@
+# Core ML/AI Libraries
+torch
+transformers
+peft
+trl
+datasets
+
+# Data Processing
+numpy
+pandas
+tqdm
+
+# Visualization
+matplotlib
+seaborn
+
+# NLP/Text Processing
+immutabledict
+langdetect
+nltk
+
+# Utilities
+absl-py
+
+# Optional: Jupyter support (uncomment if needed)
+# jupyter>=1.0.0
+# ipykernel>=6.25.0
+# notebook>=7.0.0
+
+# Weights & Biases (used in training scripts)
+# wandb
+mlflow
+
