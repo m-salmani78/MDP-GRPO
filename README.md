@@ -65,7 +65,7 @@ If you prefer to run the steps manually, the pipeline executes the following sta
 By default, the script trains `google/gemma-2-2b-it`. *(Note: For Llama-3.2-3B mentioned in the paper, simply change the `MODEL_NAME` variable).*
 
 ```bash
-python training/prospect-grpo_train.py \
+python training/train.py \
   --model_name_or_path "google/gemma-2-2b-it" \
   --train_file "./training/data/rlhf_train.jsonl" \
   --output_dir "./results/models/google/gemma-2-2b-it/PT-GRPO" \

@@ -13,6 +13,7 @@ RES_DATA_DIR="./results/output"
 RES_PATH="${RES_DATA_DIR}/${MODEL_NAME}-$METHOD.jsonl"
 CHECKED_NAME="${MODEL_NAME}-$METHOD"
 GPU_MEMORY_UTILIZATION=0.9
+
 # ==============================
 # 1. Train
 # ==============================
@@ -20,7 +21,7 @@ echo $METHOD
 export CUDA_VISIBLE_DEVICES=$CUDA
 echo "CUDA_VISIBLE_DEVICES: $CUDA_VISIBLE_DEVICES"
 
-python training/prospect-grpo_train.py \
+python training/train.py \
   --model_name_or_path "$MODEL_NAME" \
   --train_file "$TRAIN_FILE" \
   --output_dir "$RES_MODEL_DIR" \
@@ -36,10 +37,13 @@ python training/prospect-grpo_train.py \
   --run_name "$METHOD" \
   --num_generations 4 \
   --DA_ALPHA 0.2 \
+  --DA_GOAL_MU_MODE "max_half_and_group_mean" \
+  --DO_PROSPECT True \
   --prospect_lambda_pos 2.0 \
   --prospect_lambda_neg 1.25 \
-  --temperature_list 0.1 0.5 0.8 1.0 \
-  --DO_PROSPECT True
+  --beta_by_adv_sign True \
+  --prospect_applied_to_delta True \
+  --temperature_list 0.1 0.4 0.7 1.0
 
 # ==============================
 # 2. Determine latest checkpoint
