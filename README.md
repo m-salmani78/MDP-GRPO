@@ -1,4 +1,4 @@
-# MDP-GRPO: Dual-Anchor Group Relative Policy Optimization for Multi-Constraint Instruction Following
+# MDP-GRPO: Stabilized Group Relative Policy Optimization for Multi-Constraint Instruction Following
 
 [![Github](https://img.shields.io/static/v1?logo=github&style=flat&label=github&message=m-salmani78/MDP-GRPO)](https://github.com/m-salmani78/MDP-GRPO)
 [![Conference](https://img.shields.io/badge/ACL-2026-blue)](https://2026.aclweb.org/)
@@ -135,7 +135,7 @@ If you find this repository or our paper useful, please consider citing our work
 
 ```bibtex
 @inproceedings{salmani2026mdpgrpo,
-  title={MDP-GRPO: Dual-Anchor Group Relative Policy Optimization for Multi-Constraint Instruction Following},
+  title={MDP-GRPO: Stabilized Group Relative Policy Optimization for Multi-Constraint Instruction Following},
   author={Salmani-Zarchi, Mohammad Mahdi and Rahimi, Zahra and Faili, Heshaam and Dousti, Mohammad Javad},
   booktitle={Proceedings of the 64th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)},
   year={2026},
@@ -144,5 +144,7 @@ If you find this repository or our paper useful, please consider citing our work
 ```
 
 ## 🤝 Acknowledgments
-* This codebase builds upon [Standard GRPO Implementation / vLLM / TRL etc. - add links].
-* We thank the reviewers at ACL 2026 for their valuable feedback.
+
+- We thank the Mobile MCILab for providing the computational resources used in this work.
+- We thank the reviewers at ACL 2026 for their valuable feedback.
+- We builds on the complex instruction data creation and rule-based evaluation framework from [He et al.](https://github.com/meowpass/FollowComplexInstruction).
