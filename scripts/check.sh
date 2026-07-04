@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Default directories
-DATA_DIR="./src/data"
+DATA_DIR="./data"
 RESULTS_DIR="./results/output"
 CHECKED_RES_DIR="./results/checked"
 

@@ -2,7 +2,7 @@
 
 # Default values
 CUDA_VISIBLE_DEVICES_DEFAULT=1
-DATA_PATH="./src/data/data_test.jsonl"
+DATA_PATH="./data/data_test.jsonl"
 BATCH_SIZE=128
 MAX_MODEL_LEN=2048
 MAX_TOKENS=1024

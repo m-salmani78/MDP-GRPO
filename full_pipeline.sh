@@ -6,7 +6,7 @@ set -euo pipefail
 # ==============================
 CUDA=1
 MODEL_NAME="google/gemma-2-2b-it"
-TRAIN_FILE="./training/data/rlhf_train.jsonl"
+TRAIN_FILE="./data/rlhf_train.jsonl"
 METHOD="MDP-GRPO"
 RES_MODEL_DIR="./results/models/$MODEL_NAME/$METHOD"
 RES_DATA_DIR="./results/output"
