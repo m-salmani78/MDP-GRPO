@@ -7,13 +7,13 @@
 ## 📖 Abstract
 
 Reinforcement learning with verifiable rewards is ideal for multi-constraint instruction following, yet standard group-relative policy optimization (GRPO) becomes unstable under discrete, low-variance rewards that frequently produce homogeneous groups. 
-We identify and formalize three pathologies of z-score group normalization in this regime: low-variance amplification, mean-centering blindness, and zero-variance collapse. 
+We identify and formalize three pathologies of z-score group normalization in this regime: low-variance amplification, mean-centering blindness, and zero-variance collapse.
 
 To address them, we propose **MDP-GRPO**, which stabilizes learning through:
 1. **M**ulti-temperature sampling to increase reward dispersion.
 2. **D**ual-anchor advantages to restore gradients in homogeneous groups.
 3. **P**rospect-theoretic shaping to bound updates and penalize violations based on Kahneman & Tversky's theory.
-4. Asymmetric KL regularization. 
+4. Asymmetric KL regularization.
 
 Evaluated on FollowBench, IFEval, and a curated multi-constraint dataset, MDP-GRPO outperforms standard GRPO, improving strict constraint satisfaction by up to 6.0% on Llama-3.2-3B. Our method also enables stable convergence with small group sizes while preserving general capabilities on MMLU and ARC.
 
@@ -41,11 +41,11 @@ pip install -r requirements.txt
 
 ## 🗂️ Data Preparation
 
-Ensure your RLHF training data is formatted as a JSONL file. By default, the training pipeline expects the dataset to be located at `./training/data/rlhf_train.jsonl`. 
+Ensure your RLHF training data is formatted as a JSONL file. By default, the training pipeline expects the dataset to be located at `./data/rlhf_train.jsonl`.
 
 ```bash
 # Place your formatted data in the expected directory
-mkdir -p ./training/data
+mkdir -p ./data
 # (Copy or download your rlhf_train.jsonl here)
 ```
 
@@ -67,7 +67,7 @@ By default, the script trains `google/gemma-2-2b-it`. *(Note: For Llama-3.2-3B m
 ```bash
 python training/train.py \
   --model_name_or_path "google/gemma-2-2b-it" \
-  --train_file "./training/data/rlhf_train.jsonl" \
+  --train_file "./data/rlhf_train.jsonl" \
   --output_dir "./results/models/google/gemma-2-2b-it/PT-GRPO" \
   --per_device_train_batch_size 8 \
   --gradient_accumulation_steps 4 \
@@ -145,6 +145,6 @@ If you find this repository or our paper useful, please consider citing our work
 
 ## 🤝 Acknowledgments
 
-- We thank the Mobile MCILab for providing the computational resources used in this work.
+- We thank the MCILab for providing the computational resources used in this work.
 - We thank the reviewers at ACL 2026 for their valuable feedback.
-- We builds on the complex instruction data creation and rule-based evaluation framework from [He et al.](https://github.com/meowpass/FollowComplexInstruction).
+- We builds on the complex instruction data creation and rule-based evaluation framework from [He et al.](https://github.com/meowpass/FollowComplexInstruction)
