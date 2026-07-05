@@ -2,7 +2,8 @@
 torch==2.8.0
 transformers==4.57.1
 peft==0.17.1
-trl
+# Custom fork of TRL implementing MDP-GRPO. See: github.com/m-salmani78/trl
+trl @ git+https://github.com/m-salmani78/trl.git@MDP-GRPO
 datasets==4.2.0
 accelerate==1.11.0
 

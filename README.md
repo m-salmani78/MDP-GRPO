@@ -19,6 +19,7 @@ Evaluated on FollowBench, IFEval, and a curated multi-constraint dataset, MDP-GR
 
 ## 📑 Table of Contents
 - [Installation](#-installation)
+- [Custom TRL Fork](#-custom-trl-fork)
 - [Data Preparation](#-data-preparation)
 - [Training](#-training)
 - [Evaluation](#-evaluation)
@@ -37,6 +38,27 @@ conda activate mdp-grpo
 
 # Install dependencies
 pip install -r requirements.txt
+```
+
+## 🔧 Custom TRL Fork
+
+The upstream [`huggingface/trl`](https://github.com/huggingface/trl) library's `GRPOConfig`/`GRPOTrainer` do not natively support the components introduced by MDP-GRPO. We therefore maintain a fork, **[m-salmani78/trl](https://github.com/m-salmani78/trl)** (branch [`MDP-GRPO`](https://github.com/m-salmani78/trl/tree/MDP-GRPO)), which extends `GRPOConfig`/`GRPOTrainer` with:
+
+| Argument | Purpose |
+|---|---|
+| `temperature_list` | Multi-temperature sampling: assigns a different sampling temperature to each of the `num_generations` completions per prompt to increase reward dispersion. |
+| `advantage_mode="dual_anchor"`, `dual_anchor_alpha`, `dual_anchor_reward_is_normalized`, `dual_anchor_constraint_key`, `dual_anchor_goal_mu_mode` | Dual-anchor advantages: mixes the standard group-normalized advantage \(z_i\) with a goal-aware advantage \(\delta_i\) to restore gradients in homogeneous (zero-variance) groups. |
+| `prospect_enable`, `prospect_applied_to_delta`, `prospect_beta`, `prospect_lambda_pos`, `prospect_lambda_neg` | Prospect-theoretic shaping: bounds advantage magnitude and asymmetrically penalizes constraint violations, based on Kahneman & Tversky's Prospect Theory. |
+| `beta_by_adv_sign`, `beta_pos`, `beta_neg` | Asymmetric KL regularization: applies a different KL coefficient depending on the sign of the advantage. |
+
+`requirements.txt` already pins `trl` to this fork, so a plain `pip install -r requirements.txt` is enough. If you want to install/update it manually (e.g. for development on the fork itself):
+
+```bash
+pip install --upgrade "git+https://github.com/m-salmani78/trl.git@MDP-GRPO"
+
+# or, for an editable/development install
+git clone -b MDP-GRPO https://github.com/m-salmani78/trl.git
+pip install -e ./trl
 ```
 
 ## 🗂️ Data Preparation
@@ -148,3 +170,4 @@ If you find this repository or our paper useful, please consider citing our work
 - We thank the MCILab for providing the computational resources used in this work.
 - We thank the reviewers at ACL 2026 for their valuable feedback.
 - We builds on the complex instruction data creation and rule-based evaluation framework from [He et al.](https://github.com/meowpass/FollowComplexInstruction)
+- We build on [Hugging Face TRL](https://github.com/huggingface/trl), extended in our fork [m-salmani78/trl](https://github.com/m-salmani78/trl) to natively support MDP-GRPO.
